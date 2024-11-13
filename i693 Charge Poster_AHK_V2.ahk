@@ -170,9 +170,8 @@ EraPostingKeys_CourtesyWriteOff(){
 }
 
 
-;TODO test this
+
 i693ChargePoster_Close(*) {
-	;Run("C:\Users\" A_UserName "\Google Drive\Great City Medical\Scripts\Main Script AHK_V2\Main Script.ahk")
 	ExitApp
     ; Do not call ExitApp -- that would prevent other callbacks from being called.
 }
