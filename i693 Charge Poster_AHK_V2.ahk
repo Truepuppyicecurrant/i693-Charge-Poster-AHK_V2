@@ -4,36 +4,37 @@
 ;TODO create a picture that shows what are the hotkeys
 ^XButton2::EraPostingKeys_CourtesyWriteOff
 ^RButton::PaymentPaste ;when selecting the insurance balance it will paste it into the payment section
-MsgBox('hello')
+
 GuiWidth := 370 ;250
 
 
 i693ChargePoster:=Gui('AlwaysOnTop','i693 Charge Poster')
 i693ChargePoster.SetFont('s9')
-i693ChargePoster.Add('Button', 'xp+4 yp+20 w150 h30 vv1 Section','Exam').OnEvent('Click',InitialCPTandDXentry.Bind('i6NEW','z02.89'))
-i693ChargePoster.Add('Button', 'x+10 yp w60 h30','INS').OnEvent('Click',InitialCPTandDXentry.Bind('i6NI','z02.89'))
+i693ChargePoster.Add('Button', 'x5 y5 w135 h30 vv1 Section','Exam').OnEvent('Click',InitialCPTandDXentry.Bind('i6NEW','z02.89'))
+i693ChargePoster.Add('Button', 'x+5 yp w70 h30','INS').OnEvent('Click',InitialCPTandDXentry.Bind('i6NI','z02.89'))
 
 
 i693ChargePoster.Add('Button', 'xS yp+35 w100 hp vv2 Section','Tuberculosis').OnEvent('Click',ChargePoster)
 i693ChargePoster.Add('Button', 'xp yp+35 wp hp vv3','Syphilis').OnEvent('Click',ChargePoster)
 i693ChargePoster.Add('Button', 'xp yp+35 wp hp vv4','Gonorrhea').OnEvent('Click',ChargePoster)
 
-i693ChargePoster.Add('Button', 'x+20 yp+35 wp hp vv5','Tetanus Vaccine').OnEvent('Click',ChargePoster)
+i693ChargePoster.Add('Button', 'x+5 yp+35 wp hp vv5','Tetanus Vaccine').OnEvent('Click',ChargePoster)
 
 i693ChargePoster.Add('Button', 'xS yp+35 wp hp vv6 Section','MMR Titer').OnEvent('Click',ChargePoster)
-i693ChargePoster.Add('Button', 'x+20 yp wp hp vv7','MMR Vaccine').OnEvent('Click',ChargePoster)
+i693ChargePoster.Add('Button', 'x+5 yp wp hp vv7','MMR Vaccine').OnEvent('Click',ChargePoster)
 
 i693ChargePoster.Add('Button', 'xS yp+35 wp hp vv8 Section','Varicella Titer').OnEvent('Click',ChargePoster)
-i693ChargePoster.Add('Button', 'x+20 yp wp hp vv9','Varicella Vaccine').OnEvent('Click',ChargePoster)
+i693ChargePoster.Add('Button', 'x+5 yp wp hp vv9','Varicella Vaccine').OnEvent('Click',ChargePoster)
 
 i693ChargePoster.Add('Button', 'xS yp+35 wp hp vv10 Section','Hep B Titer').OnEvent('Click',ChargePoster)
-i693ChargePoster.Add('Button', 'x+20 yp wp hp vv11','Hep B Vaccine').OnEvent('Click',ChargePoster)
+i693ChargePoster.Add('Button', 'x+5 yp wp hp vv11','Hep B Vaccine').OnEvent('Click',ChargePoster)
 
 i693ChargePoster.Add('Button', 'xp yp+35 wp hp vv12','Polio Vaccine').OnEvent('Click',ChargePoster)
 
 i693ChargePoster.Add('Button', 'xp yp+35 wp hp vv13','Flu').OnEvent('Click',ChargePoster)
 
-i693ChargePoster.Add('Button', 'xS yp+35 w220 hp vv14','Mailing Fee').OnEvent('Click',ChargePoster)
+
+i693ChargePoster.Add('Button', 'xS yp+35 w205 hp vv14','Mailing Fee').OnEvent('Click',ChargePoster)
 i693ChargePoster.Add('Button', 'xp yp+35 wp hp vv15','5 Day Turn').OnEvent('Click',ChargePoster)
 i693ChargePoster.Add('Button', 'xp yp+35 wp hp vv16','Misc').OnEvent('Click',ChargePoster)
 i693ChargePoster.Add('Text', 'xp yp+40 wp hp Center','Total')
@@ -42,7 +43,7 @@ i693ChargePoster.Add('Text', 'xp yp+30 wp hp Center','CC')
 i693ChargePoster.Add('Edit', 'xp yp+20 wp  vCC').OnEvent('Change',DebitAdjustCalculation)
 i693ChargePoster.Add('Edit', 'xp yp+25 wp  vDebitAdjust')
 
-i693ChargePoster.Add('Button','x+5 y20 w55 h65 Section', 'Exam `nTBGOLD').OnEvent('Click',InitialCPTandDXentry.Bind('i6ET','z02.89'))
+i693ChargePoster.Add('Button','x+10 y5 w55 h65 Section', 'Exam `nTBGOLD').OnEvent('Click',InitialCPTandDXentry.Bind('i6ET','z02.89'))
 i693ChargePoster.Add('Button','xp+60 yp w55 h135', 'Exam `nTBGOLD`nSyp`nGono').OnEvent('Click',InitialCPTandDXentry.Bind('i6etsg','z02.89'))
 i693ChargePoster.BackColor := 'ed830a'
 i693ChargePoster.Show('w' GuiWidth)
