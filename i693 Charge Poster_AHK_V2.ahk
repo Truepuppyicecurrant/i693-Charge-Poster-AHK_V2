@@ -8,7 +8,7 @@
 GuiWidth := 342 ;250
 
 
-i693ChargePoster:=Gui('AlwaysOnTop','i693 Charge Poster')
+i693ChargePoster:=Gui('AlwaysOnTop','i693 Charge Poster - z02.89')
 i693ChargePoster.SetFont('s9')
 i693ChargePoster.Add('Button', 'x5 y5 w135 h30 vv1 Section','Exam').OnEvent('Click',InitialCPTandDXentry.Bind('i6NEW','z02.89'))
 i693ChargePoster.Add('Button', 'x+5 yp w70 h30','INS').OnEvent('Click',InitialCPTandDXentry.Bind('i6NI','z02.89'))
@@ -40,8 +40,9 @@ i693ChargePoster.Add('Button', 'xp yp+35 wp hp vv17','Misc').OnEvent('Click',Cha
 i693ChargePoster.Add('Text', 'xp yp+40 wp hp Center','Enter Total Paid')
 i693ChargePoster.Add('Edit', 'xp yp+20 wp  vtotalPaid').OnEvent('Change',DebitAdjustCalculation)
 ;i693ChargePoster.Add('Text', 'xp yp+30 wp hp Center','CC')
-i693ChargePoster.Add('Edit', 'xp yp+25 wp  vCashPrice')
-i693ChargePoster.Add('Edit', 'xp yp+25 wp  vDebitAdjust')
+i693ChargePoster.Add('Edit', 'xp yp+25 wp  vCashPrice ReadOnly')
+i693ChargePoster.Add('Edit', 'xp yp+25 wp  vDebitAdjust ReadOnly')
+
 
 i693ChargePoster.Add('Button','x+10 y5 w55 h65 Section', 'Exam `nTBGOLD').OnEvent('Click',InitialCPTandDXentry.Bind('i6ET','z02.89'))
 i693ChargePoster.Add('Button','xp+60 yp w55 h135', 'Exam `nTBGOLD`nSyp`nGono').OnEvent('Click',InitialCPTandDXentry.Bind('i6etsg','z02.89'))
