@@ -5,14 +5,16 @@
 ^XButton2::EraPostingKeys_CourtesyWriteOff
 ^RButton::PaymentPaste ;when selecting the insurance balance it will paste it into the payment section
 
-GuiWidth := 250
+GuiWidth := 370 ;250
 
 
 i693ChargePoster:=Gui('AlwaysOnTop','i693 Charge Poster')
 i693ChargePoster.SetFont('s9')
-i693ChargePoster.Add('Button', 'xp+4 yp+20 w220 h30 vv1','Exam').OnEvent('Click',ExamFee)
+i693ChargePoster.Add('Button', 'xp+4 yp+20 w150 h30 vv1 Section','Exam').OnEvent('Click',InitialCPTandDXentry.Bind('i6NEW','z02.89'))
+i693ChargePoster.Add('Button', 'x+10 yp w60 h30','INS').OnEvent('Click',InitialCPTandDXentry.Bind('i6NI','z02.89'))
 
-i693ChargePoster.Add('Button', 'xp yp+35 w100 hp vv2 Section','Tuberculosis').OnEvent('Click',ChargePoster)
+
+i693ChargePoster.Add('Button', 'xS yp+35 w100 hp vv2 Section','Tuberculosis').OnEvent('Click',ChargePoster)
 i693ChargePoster.Add('Button', 'xp yp+35 wp hp vv3','Syphilis').OnEvent('Click',ChargePoster)
 i693ChargePoster.Add('Button', 'xp yp+35 wp hp vv4','Gonorrhea').OnEvent('Click',ChargePoster)
 
@@ -39,9 +41,13 @@ i693ChargePoster.Add('Edit', 'xp yp+20 wp  vtotal')
 i693ChargePoster.Add('Text', 'xp yp+30 wp hp Center','CC')
 i693ChargePoster.Add('Edit', 'xp yp+20 wp  vCC').OnEvent('Change',DebitAdjustCalculation)
 i693ChargePoster.Add('Edit', 'xp yp+25 wp  vDebitAdjust')
+
+i693ChargePoster.Add('Button','x+5 y20 w55 h65 Section', 'Exam `nTBGOLD').OnEvent('Click',InitialCPTandDXentry.Bind('i6ET','z02.89'))
+i693ChargePoster.Add('Button','xp+60 yp w55 h135', 'Exam `nTBGOLD`nSyp`nGono').OnEvent('Click',InitialCPTandDXentry.Bind('i6etsg','z02.89'))
 i693ChargePoster.BackColor := 'ed830a'
 i693ChargePoster.Show('w' GuiWidth)
 i693ChargePoster.OnEvent('Close',i693ChargePoster_Close)
+
 
 
 
@@ -53,12 +59,12 @@ DebitAdjustCalculation(*){
 	return
 }
 
-ExamFee(*){
+InitialCPTandDXentry(CPT,DX,*){
 	try {
 		WinActivate('Charge Entry --')
 		loop 15
 			i693ChargePoster['v' A_Index].visible := False
-		Send('i6new')
+		Send(CPT)
 		Sleep(200)
 		Send('{Tab}')
 		Sleep(200)
@@ -68,7 +74,7 @@ ExamFee(*){
 		Sleep(200)
 		send("+{tab 2}")
 		Sleep(200)
-		Send('z02.89')
+		Send(DX)
 		Sleep(500)
 		Send('{Tab}')
 		Send('{alt down}a{alt up}')
@@ -81,7 +87,8 @@ ExamFee(*){
 		return
 	}
 }
-	
+
+
 
 ChargePoster(ButtonText,NotUsed){
 	;Mapping the name of the button to CPT
