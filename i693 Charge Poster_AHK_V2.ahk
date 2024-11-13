@@ -4,7 +4,7 @@
 ;TODO create a picture that shows what are the hotkeys
 ^XButton2::EraPostingKeys_CourtesyWriteOff
 ^RButton::PaymentPaste ;when selecting the insurance balance it will paste it into the payment section
-
+MsgBox('hello')
 GuiWidth := 370 ;250
 
 
