@@ -5,7 +5,7 @@
 ^XButton2::EraPostingKeys_CourtesyWriteOff
 ^RButton::PaymentPaste ;when selecting the insurance balance it will paste it into the payment section
 
-GuiWidth := 342 ;250
+GuiWidth := 250 ;342
 
 
 i693ChargePoster:=Gui('AlwaysOnTop','i693 Charge Poster - z02.89')
